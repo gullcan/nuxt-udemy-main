@@ -187,7 +187,7 @@ partner-logo-item {
 
 .submit-btn {
   width: 100%;
-  height: 120px; 
+  height: 50px; 
   text-align: center;
   margin-top: 20px; 
   font-size: 18px; 

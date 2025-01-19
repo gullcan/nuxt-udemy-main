@@ -1,17 +1,19 @@
-<script setup>
+<template> 
+  <Header /> 
+  <Signup />
+    <div class="spaceholder"></div>
+    <Footer />
+</template>
+
+
+<script>
+  import Header from '/components/Header.vue';
     import Signup from '~/components/Signup.vue';
     import Footer from '/components/Footer.vue';
-    </script>
+</script>
     
-    <template>
-      <div>
-        <Signup />
-        <div class="spaceholder"></div>
-        <Footer />
-      </div>
-    </template>
-    
-    <style scoped>
+
+<style scoped>
    
    .spaceholder{
   width: 100%;

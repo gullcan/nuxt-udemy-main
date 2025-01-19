@@ -71,7 +71,7 @@
       <div class="login-redirect">
         <p>
           Zaten bir hesabınız var mı?
-          <a href="/join/login-popup/?locale=tr_TR">Oturum aç</a>
+          <a href="http://localhost:3000/login">Oturum aç</a>
         </p>
       </div>
     </div>

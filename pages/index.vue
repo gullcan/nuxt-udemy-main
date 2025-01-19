@@ -1,4 +1,5 @@
 <template>
+  <Header />
 <div>
     <!-- Carousel Bileşeni -->
     <Carousel />
@@ -35,6 +36,7 @@
 </template>
 
 <script setup>
+  import Header from '/components/Header.vue';
 import Carousel from '/components/Carousel.vue';
 import SkillsHub from '/components/SkillsHub.vue';
 import TrendTopics from '/components/TrendTopics.vue';

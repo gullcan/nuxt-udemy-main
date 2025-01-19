@@ -58,9 +58,9 @@
           <!-- Alt linkler -->
           <div class="login-redirect">
             <p>
-              Zaten bir hesabınız var mı?
-              <a href="/join/login-popup/?locale=tr_TR">Oturum aç</a>
-              <div></div>
+              Hesabınız yok mu?
+              <a href="http://localhost:3000/signup">Kaydol</a>
+              <div> </div>
               <a href="https://www.udemy.com/organization/global-login/email">Kuruluşunuzla oturum açın</a>
             </p>
           </div>

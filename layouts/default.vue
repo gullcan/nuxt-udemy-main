@@ -1,10 +1,7 @@
 <template>
   <v-app>
     <!-- Header Bileşeni -->
-    <header>
-      <Header />
-    </header>
-
+ 
     <!-- Ana İçerik -->
     <v-main>
       <slot /> <!-- Sayfaya özel içerikler burada görünecek -->
@@ -16,13 +13,8 @@
 </template>
 
 <script>
-import Header from '/components/Header';
 
-export default {
-  components: {
-    Header
-  },
-};
+
 </script>
 
 <style scoped>
