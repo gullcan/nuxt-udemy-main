@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <!-- Header Bileşeni -->
- 
-    <!-- Ana İçerik -->
+
     <v-main>
       <slot /> <!-- Sayfaya özel içerikler burada görünecek -->
     </v-main>

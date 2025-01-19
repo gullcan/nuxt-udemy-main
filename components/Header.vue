@@ -76,6 +76,7 @@
 
   /* Header Arkaplan */
   .fake-header {
+    margin-bottom: 55px;
     height:0px;
     background-color: #ffffff;
   }
