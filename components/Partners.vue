@@ -90,6 +90,7 @@
   margin-bottom: 2.4rem; /* Alt boşluk */
   font-size: clamp(1.65rem, calc(1.65rem + (1.8 - 1.65) * ((100vw - 36rem) / (144 - 36))), 1.8rem); /* Dinamik font boyutu */
   max-width: 100%; /* En genişlik sınırı */
+  font-size:18px;
 }
 
   
@@ -105,7 +106,7 @@
 
   
   .partner-logo-item img {
-    max-height: 50px; /* Logoların yüksekliği */
+    max-height: 45px; /* Logoların yüksekliği */
     object-fit: contain;
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: grayscale(100%);

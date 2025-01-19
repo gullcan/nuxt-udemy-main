@@ -50,6 +50,7 @@ body {
     display: flex;
 }
 
+/* Logo */
 .logo-wrapper {
     align-items: center;
     display: flex;
@@ -57,17 +58,9 @@ body {
 }
 
 .logo-wrapper img {
-    max-width: 100%;
+    max-width: 91px; /* Logo boyutunu ekran boyutuna göre ayarla */
     height: auto;
     vertical-align: middle;
-}
-
-.nav-wrapper {
-    cursor: pointer;
-}
-
-.nav-wrapper:hover .nav-btn {
-    color: #5624d0;
 }
 
 .nav-btn {
@@ -76,160 +69,59 @@ body {
     height: 4.8rem;
     background-color: transparent;
     min-width: auto;
-
     color: #1c1d1f;
     font-weight: 400;
     line-height: 1.4;
     font-size: 1.4rem;
-    letter-spacing: -.02rem;
+    letter-spacing: -0.02rem;
+    text-decoration: none; /* Altı çizili kaldırıldı */
 }
 
 .nav-btn:hover {
     color: #5624d0;
+    text-decoration: none; /* Hover'da da altı çizili olmasın */
 }
 
-.nav-menu-list {
-    margin-top: 15px;
+
+
+/* Responsive tasarım için */
+@media (max-width: 768px) {
+    .header-wrapper {
+        height: 6rem;
+        padding: 0 1rem;
+    }
+    .logo-wrapper img {
+        max-width: 70px;
+    }
+    .nav-btn {
+        font-size: 1.2rem;
+        padding: 0 0.8rem;
+    }
+    .white-btn {
+        font-size: 1.2rem;
+        padding: 0 0.8rem;
+    }
+    .search-wrapper {
+        margin: 0 0.8rem;
+    }
 }
 
-.search-wrapper {
-    flex-grow: 1;
-    height: 4.8rem;
-    border: 1px solid #1c1d1f;
-    border-radius: 9999px;
-    background-color: #f7f9fa;
-    margin: 0 1.2rem;
-    max-width: none;
-
-    display: flex;
-    align-items: center;
+@media (max-width: 480px) {
+    .header-wrapper {
+        height: 5.5rem;
+        padding: 0 0.5rem;
+    }
+    .logo-wrapper img {
+        max-width: 60px;
+    }
+    .nav-btn {
+        font-size: 1rem;
+    }
+    .white-btn {
+        font-size: 1rem;
+    }
 }
 
-.search-btn {
-    width: 5.016rem;
-    height: 4.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.5;
-}
-
-.search-btn i {
-    font-size: 2.4rem;
-}
-
-.search-bar {
-    font-size: 1.4rem;
-    padding: 0 0 0 .4rem;
-    height: 3.4rem;
-    color: #1c1d1f;
-    width: 100%;
-}
-
-.search-bar:focus {
-    outline: none;
-}
-
-.icon-24, .icon-24 i {
-    font-size: 2.4rem;
-}
-
-.white-btn {
-    color: #1c1d1f;
-    background-color: transparent;
-    border: 1px solid #1c1d1f;
-    height: 4rem;
-    padding: 0 1.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -.02rem;
-    font-size: 1.4rem;
-    min-width: 8rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.white-btn2 {
-    color: #fff;
-    background-color: transparent;
-    border: 1px solid #fff;
-    height: 4rem;
-    padding: 0 1.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -.02rem;
-    font-size: 1.4rem;
-    min-width: 8rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.white-btn {
-    color: #1c1d1f;
-    background-color: transparent;
-    border: 1px solid #1c1d1f;
-    height: 4rem;
-    padding: 0 1.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -.02rem;
-    font-size: 1.4rem;
-    min-width: 8rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.white-btn.icon {
-    min-width: auto !important;
-    padding: 0 0.901rem !important;
-    font-size: 1.333rem;
-}
-
-.ms-8r {
-    margin-left: 0.8rem;
-}
-
-.white-btn:hover {
-    color: #1c1d1f;
-    background-color: rgba(0,0,0,.04);
-}
-
-.white-btn2:hover {
-    color: #fff;
-    background-color: rgba(255,255,255,.04);
-}
-
-.black-btn {
-    color: #fff;
-    background-color: #1c1d1f;
-    border: 1px solid #1c1d1f;
-    height: 4rem;
-    padding: 0 1.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -.02rem;
-    font-size: 1.4rem;
-    min-width: 8rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.fake-header {
-    height: 7.2rem;
-    width: 100%;
-}
 
 .carousel-wrapper {
     max-width: 134rem;

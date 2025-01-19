@@ -87,6 +87,7 @@
   .skills-hub {
     padding: 20px;
     background-color: #f9f9f9;
+    max-height: 900px;
   }
   
   .categories {
@@ -107,6 +108,7 @@
   }
   
   .student-count {
+  
     margin-left: 5px;
     font-weight: bold;
     color: #666;
@@ -188,14 +190,17 @@
   }
   
   .show-more {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 14px;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    margin-top: 40px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 900;
+    background-color: transparent;
+    color: #5624d0;
+    border: 1px solid #5624d0;
+    border-radius: 3px;
+    text-decoration: none;
     cursor: pointer;
+    transition: all 12s ease;
+    position: absolute;
   }
   </style>
-  
