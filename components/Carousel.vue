@@ -6,7 +6,8 @@
       height="400"
       class="carousel-wrapper"
     >
-      <!-- İlk Slayt -->
+
+    
       <v-carousel-item>
         <div>
           <img
@@ -23,7 +24,8 @@
         </div>
       </v-carousel-item>
 
-      <!-- İkinci Slayt -->
+  
+      
       <v-carousel-item>
         <div>
           <img
@@ -66,46 +68,46 @@ export default {
 
 .slide-box {
   position: absolute;
-  top: 60px; /* Yukarıdan mesafe */
-  left: 80px; /* Soldan mesafe */
-  background-color: white; /* Arka plan rengi */
-  padding: 16px; /* İçerik dolgusu */
-  border-radius: 8px; /* Köşelerin yuvarlatılması */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-  max-width: 400px; /* Maksimum genişlik */
+  top: 60px; 
+  left: 80px; 
+  background-color: white; 
+  padding: 16px; 
+  border-radius: 8px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  max-width: 400px; 
   z-index: 2;
 }
 
 .slide-heading {
   font-family: SuisseWorks;
-  font-size: 2rem; /* Başlık boyutu */
-  font-weight: bold; /* Başlık kalınlığı */
-  margin-bottom: 5px; /* Alt boşluk */
+  font-size: 2rem; 
+  font-weight: bold; 
+  margin-bottom: 5px; 
 }
 
 .slide-paragraph {
-  font-size: 1rem; /* Paragraf boyutu */
-  color: #555; /* Yazı rengi */
-  line-height: 1.3; /* Satır yüksekliği */
-  margin-bottom: 16px; /* Alt boşluk */
+  font-size: 1rem; 
+  color: #555; 
+  line-height: 1.3; 
+  margin-bottom: 16px;
 }
 
 .button-container {
   display: flex;
-  gap: 8px; /* Butonlar arası boşluk */
+  gap: 8px; 
 }
 
 .custom-btn {
-  font-size: 0.7rem; /* Buton yazı boyutu */
-  border-color: #5022c3; /* Kenar rengi örneği */
-  color: #5022c3; /* Yazı rengi örneği */
-  background-color: #ffffff; /* Arka plan rengi örneği */
-  padding: 6px 12px; /* İçerik dolgusu */
-  border-radius: 4px; /* Buton köşeleri */
+  font-size: 0.7rem; 
+  border-color: #5022c3;
+  color: #5022c3; 
+  background-color: #ffffff; 
+  padding: 6px 12px; 
+  border-radius: 4px; 
 }
 
 .custom-btn:hover {
-  background-color: #5022c3; /* Hover durumu arka plan rengi */
-  color: #ffffff; /* Hover durumu yazı rengi */
+  background-color: #5022c3; 
+  color: #ffffff; 
 }
 </style>

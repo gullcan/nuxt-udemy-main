@@ -1,6 +1,6 @@
 <template>
     <section class="skills-hub">
-      <!-- Üst Kategori Düğmeleri -->
+     
       <div class="categories">
         <button v-for="(category, index) in categories" :key="index" class="category">
           {{ category.name }}
@@ -8,7 +8,7 @@
         </button>
       </div>
   
-      <!-- Kaydırmalı Kurs Kartları -->
+  
       <div class="carousel">
         <div class="carousel-wrapper">
           <div class="carousel-item" v-for="(course, index) in courses" :key="index">
@@ -30,7 +30,7 @@
         </div>
       </div>
   
-      <!-- Alt Buton -->
+     
       <button class="show-more">Tüm Veri Bilimi kurslarını göster</button>
     </section>
   </template>

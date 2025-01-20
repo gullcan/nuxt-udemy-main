@@ -1,7 +1,8 @@
 <template>
   <v-container class="py-10">
-    <!-- Başlık ve Açıklama -->
-    <v-row justify="center">
+
+    
+    <v-row>
       <v-col cols="12">
         <h1 class="font-weight-bold text-h3 mb-4">
           Kendiniz veya kuruluşunuz için ilerlemeyi hızlandırın
@@ -12,11 +13,12 @@
       </v-col>
     </v-row>
 
-    <!-- Plan Kartları -->
+  
     <v-row dense>
       <v-col cols="12" md="4" v-for="(plan, index) in plans" :key="index">
         <v-card class="elevation-1 h-100 d-flex flex-column justify-space-between" outlined style="border: 1px solid #f6f7f9;">
-          <!-- Üst Bölüm (Başlık ve İkon) -->
+        
+          
           <v-sheet class="d-flex align-center pa-4" style="background-color: #f6f7f9;">
             <div>
               <h3 class="text-h5 font-weight-medium">{{ plan.name }}</h3>
@@ -28,7 +30,7 @@
             </div>
           </v-sheet>
 
-          <!-- Orta Bölüm (Fiyatlandırma ve Buton) -->
+
           <v-card-text style="background-color: white;">
             <div v-if="plan.price">
               <h4 class="text-h6 mb-2">{{ plan.price }}</h4>
@@ -40,7 +42,7 @@
             </v-btn>
           </v-card-text>
 
-          <!-- Alt Bölüm (Özellikler Listesi) -->
+         
           <v-card-text style="background-color: white;">
             <ul class="mt-4">
               <li v-for="(feature, i) in plan.features" :key="i" class="d-flex align-center mb-2">
@@ -122,11 +124,14 @@ export default defineComponent({
 });
 </script>
 
+
 <style scoped>
-  v-rows{
+    v-rows{
     padding-left: 0;
     padding-right: 0;
+    max-width: 100%;
   }
+
 
 h4{
   padding-bottom: 0px;
@@ -145,7 +150,9 @@ li {
   text-align: center;
 }
 .text-h3 {
-  font-size: 1.8rem;
+  font-family: SuisseWorks;
+  font-size: 1rem;
+  max-width: 100%;
 }
 .text-subtitle-1 {
   font-size: 1rem;
@@ -156,18 +163,18 @@ li {
   padding-top: 0px;
 }
 
-/* Buton Stilleri */
+
 .custom-btn {
   margin-top: 50px;
-  background-color: #5022c3; /* Arka plan rengi */
-  color: white; /* Yazı rengi */
-  width: 90%; /* Genişlik artırıldı */
-  margin: 0 auto; /* Ortalanması için */
+  background-color: #5022c3; 
+  color: white; 
+  width: 90%; 
+  margin: 0 auto; 
   font-size: 0.8rem;
 
 }
 
 .custom-btn:hover {
-  background-color: #3e1a9d; /* Hover rengi */
+  background-color: #3e1a9d; 
 }
 </style>

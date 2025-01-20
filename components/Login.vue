@@ -6,9 +6,9 @@
       </v-col>
       <v-col cols="12" md="6" class="d-flex align-center justify-center">
         <v-card class="login-card">
-          <v-card-title class="headline login-title">
-            Öğrenim yolculuğunuza<br />devam etmek için oturum<br />açın
-          </v-card-title>
+          <h1 class="headline login-title">
+            Öğrenim yolculuğunuza devam etmek için oturum açın
+          </h1>
           <v-form>
             <v-text-field
               v-model="localEmail"
@@ -25,11 +25,14 @@
               E-posta ile devam et
             </v-btn>
             <div v-if="error" class="error">{{ error }}</div>
+            <div v-else class="no-error">Error: {{ error }}</div>
           </v-form>
-                   <!-- Diğer giriş seçenekleri başlık -->
+                   
+          
                    <div class="other-options">Diğer oturum açma seçenekleri</div>
 
-                   <!-- Diğer giriş seçenekleri -->
+                   
+                   
                    <v-row class="text-center login-icons">
                      <v-col>
                        <v-btn icon class="login-btn-colored" @click="loginWithGoogle">
@@ -47,7 +50,8 @@
                        </v-btn>
                      </v-col>
                    </v-row>
-                    <!-- Alt linkler -->
+               
+                   
                     <div class="login-redirect">
                       <p>
                         Hesabınız yok mu?
@@ -71,12 +75,12 @@ export default {
   },
   data() {
     return {
-      localEmail: this.email, // Prop'u local veriyle eşitle
+      localEmail: this.email, 
     };
   },
   methods: {
     handleLogin() {
-      this.$emit("login", this.localEmail, ""); // Şifreyi burada varsayılan olarak gönderebilirsiniz
+      this.$emit("login", this.localEmail, "");
     },
     loginWithGoogle() {
       console.log("Google ile giriş");
@@ -112,12 +116,9 @@ export default {
 }
 
 .login-title {
-  font-family: "Udemy Sans";
   text-align: center;
-  font-size: 27px;
-  font-weight: 900;
-  letter-spacing: normal;
-  line-height: 86.853333px;
+  font-size: 30px;
+  font-weight: bold;
   margin-bottom: 30px;
 }
 
@@ -199,5 +200,11 @@ export default {
 
 .login-redirect a:hover {
   text-decoration: underline;
+}
+
+.error{
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
 }
 </style>

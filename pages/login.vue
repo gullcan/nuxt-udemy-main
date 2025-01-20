@@ -20,7 +20,6 @@ export default {
   components: { Header, Footer, Login },
   setup() {
     const userStore = useUserStore();
-
     return {
       email: userStore.user?.email || "",
       loading: userStore.loading,

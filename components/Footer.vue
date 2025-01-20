@@ -1,7 +1,8 @@
 <template>
   <v-footer app padless class="footer" color="#1c1f1d" dark>
     <v-container>
-      <!-- Notice Section -->
+      
+      
       <v-row class="mb-6 align-center">
         <v-col cols="12" md="6">
           <h3 class="custom-heading">
@@ -29,10 +30,12 @@
         </v-col>
       </v-row>
 
-      <!-- Divider -->
+  
+      
       <v-divider class="divider-white my-4"></v-divider>
 
-      <!-- Links and Language Selector -->
+   
+      
       <v-row>
         <v-col cols="12" md="8">
           <div class="link-groups">
@@ -68,10 +71,12 @@
 
    
 
-      <!-- Footer Bottom -->
+ 
+      
       <v-row align="center" justify="space-between">
         <v-col cols="12" md="auto" class="d-flex align-center">
-          <!-- Udemy Logo -->
+       
+          
           <img src="/assets/images/logo-udemy-inverted.svg" width="91.07142857142857" height="34">
         </v-col>
         <v-col cols="12" md="auto" class="d-flex justify-end">
@@ -147,7 +152,7 @@ export default {
 .footer-link {
   color: white;
   text-decoration: none;
-  font-size: 0.875rem; /* Daha küçük yazı boyutu */
+  font-size: 0.875rem; 
 }
 
 .language-btn {
@@ -159,7 +164,7 @@ export default {
 
 .copyright {
   color: white;
-  font-size: 0.75rem; /* Daha küçük yazı boyutu */
+  font-size: 0.75rem; 
 }
 
 .logos v-img {

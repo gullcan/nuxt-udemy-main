@@ -1,12 +1,14 @@
 <template>
   <div class="component-margin section-bg">
-    <!-- Şimdi Popüler Başlığı -->
+  
+    
     <div class="header-section">
       <h2 class="ud-heading-xl">Şimdi Popüler</h2>
       <hr class="divider-line" />
     </div>
 
-    <!-- İçerik Bölümü -->
+   
+    
     <div class="ud-container section-padding">
       <div class="d-flex justify-space-between flex-wrap">
         <div class="topic-category" v-for="(category, index) in categories" :key="index">
@@ -26,7 +28,8 @@
         </div>
       </div>
 
-      <!-- Sol Alt Köşe Butonu -->
+
+      
       <div class="left-button">
         <NuxtLink to="/explore-topics" class="white-btn">Tüm popüler yetkinlikleri göster</NuxtLink>
       </div>
@@ -77,13 +80,13 @@ export default {
 </script>
 
 <style scoped>
-/* Genel Tasarım */
+
 .component-margin {
   margin: 0;
   padding: 0;
 }
 
-/* Şimdi Popüler Başlığı */
+
 .header-section {
   padding: 1rem 0;
   text-align: left;
@@ -101,7 +104,7 @@ export default {
   margin-top: 0.5rem;
 }
 
-/* Kategoriler */
+
 .topic-category {
   width: calc(100% / 4 - 1.6rem);
   margin-bottom: 2.4rem;
@@ -113,7 +116,7 @@ export default {
   margin-bottom: 1rem;
 }
 
-/* Topics */
+
 .topic-item {
   margin-bottom: 1.2rem;
 }
@@ -137,7 +140,7 @@ export default {
   margin-top: 0.4rem;
 }
 
-/* Sol Alt Köşe Butonu */
+
 .left-button {
   margin-top: -150px;
   text-align: left;
@@ -158,7 +161,7 @@ export default {
   text-decoration: none;
 }
 
-/* Responsive Tasarım */
+
 @media (max-width: 768px) {
   .topic-category {
     width: calc(100% / 2 - 1rem);

@@ -1,8 +1,10 @@
 import { defineStore } from "pinia";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged,} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import type { User } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore"; 
+import { db } from "~/plugins/firebase"; 
 
-// Firebase Auth instance
+
 const auth = getAuth();
 
 export const useUserStore = defineStore("user", {
@@ -12,41 +14,61 @@ export const useUserStore = defineStore("user", {
     loading: false,
   }),
   actions: {
-    // Kullanıcı kaydını gerçekleştiren işlem
+   
     async signup(fullname: string, email: string, password: string) {
       this.loading = true;
       this.error = null;
       try {
-
         if (!password) {
-            throw new Error("Şifre gereklidir.");
+          throw new Error("Şifre gereklidir.");
+        }
+
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password); 
+        this.user = { fullname, email: userCredential.user.email || "", password }; 
+      } catch (error: any) {
+        this.error = error.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+   
+    async login(email: string, password: string) {
+        this.loading = true;
+        this.error = null;
+        try {
+
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      
+          
+          const userDocRef = doc(db, "stores", userCredential.user.uid); 
+          const userDoc = await getDoc(userDocRef);
+      
+          if (!userDoc.exists()) {
+            
+            throw new Error("Kullanıcı Firestore'da bulunamadı.");
           }
       
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password); // Corrected
-        this.user = { fullname, email: userCredential.user.email || "", password }; // fullname eklendi
-      } catch (error: any) {
-        this.error = error.message;
-      } finally {
-        this.loading = false;
-      }
-    },
-
-    // Kullanıcı girişi işlemi
-    async login(email: string, password: string) {
-      this.loading = true;
-      this.error = null;
-      try {
-        if (!password) {
-            throw new Error("Şifre gereklidir.");
+      
+          this.user = {
+            fullname: userDoc.data()?.fullname || "",
+            email: userCredential.user.email || "",
+            password,
+          };
+      
+        } catch (error: any) {
+          if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
+            this.error = "Yanlış e-posta veya şifre"; 
+          } else if (error.message === "Kullanıcı Firestore'da bulunamadı.") {
+            this.error = "Bu e-posta ile kayıtlı bir kullanıcı bulunmamaktadır."; 
+          } else {
+            this.error = error.message; 
           }
-        const userCredential = await signInWithEmailAndPassword(auth, email, password); // Corrected
-        this.user = { email: userCredential.user.email || "", password, fullname: "" }// Kullanıcının e-posta kaydedildi
-      } catch (error: any) {
-        this.error = error.message;
-      } finally {
-        this.loading = false;
-      }
-    },
+        } finally {
+          this.loading = false;
+        }
+      },
+      
 
     // Kullanıcı çıkışı işlemi
     async logout() {
@@ -73,3 +95,4 @@ export const useUserStore = defineStore("user", {
     },
   },
 });
+

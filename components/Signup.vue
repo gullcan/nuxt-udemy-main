@@ -15,7 +15,7 @@
           <div class="form-group">
             <input type="password" v-model="password" placeholder="Şifre" required />  </div>
 
-           <!-- Teklifler ve öneriler -->
+   
            <div class="form-group-checkbox">
             <input
               type="checkbox"
@@ -38,7 +38,7 @@
                   kabul edersiniz.
                 </p>
       </form>
-        <!-- Zaten bir hesabınız var mı? -->
+   
         <div class="login-redirect">
           <p>
             Zaten bir hesabınız var mı?
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     handleSignup() {
-      this.$emit("signup", this.fullname, this.email, this.password); // Kullanıcı kaydını başlat
+      this.$emit("signup", this.fullname, this.email, this.password); 
       console.log("Kayıt bilgileri:", this.fullname, this.email, this.password);
     },
   },
@@ -129,7 +129,7 @@ export default {
 }
 .form-group input::placeholder {
     color: #000;
-    font-weight: bold;/* Siyah placeholder */
+    font-weight: bold;
     font-size: 14px;
   }
 

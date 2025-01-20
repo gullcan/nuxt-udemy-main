@@ -2,7 +2,7 @@
   <v-app>
 
     <v-main>
-      <slot /> <!-- Sayfaya özel içerikler burada görünecek -->
+      <slot /> 
     </v-main>
 
     
@@ -23,7 +23,7 @@ html, body {
 }
 
 #app {
-  flex: 1; /* İçeriğin kalan alanı doldurmasını sağlar */
+  flex: 1; 
 }
 </style>
 

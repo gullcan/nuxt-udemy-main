@@ -1,11 +1,14 @@
 <template>
   <div>
-    <!-- Fake Header -->
+
+    
     <div class="fake-header"></div>
 
-    <!-- Vuetify App Bar -->
+ 
+    
     <v-app-bar app flat dense>
-      <!-- Logo -->
+   
+      
       <div class="logo-wrapper">
         <NuxtLink to="/">
           <img
@@ -17,12 +20,14 @@
         </NuxtLink>
       </div>
 
-      <!-- Keşfedin -->
+   
+      
       <v-btn text class="nav-btn">
         <NuxtLink to="/courses">Keşfedin</NuxtLink>
       </v-btn>
 
-      <!-- Search Bar -->
+ 
+      
       <v-text-field
         class="search-bar"
         hide-details
@@ -34,7 +39,8 @@
        
       ></v-text-field>
 
-      <!-- Action Buttons -->
+   
+      
       <v-btn text>
         <NuxtLink to="/business" class="nav-btn">Udemy Business</NuxtLink>
       </v-btn>
@@ -42,14 +48,16 @@
         <NuxtLink to="/teach" class="nav-btn">Udemy'de Eğitim Ver</NuxtLink>
       </v-btn>
 
-      <!-- Cart Icon -->
+   
+      
       <v-btn icon>
         <NuxtLink to="/cart">
           <v-icon color="#4a4a4a">mdi-cart-outline</v-icon>
         </NuxtLink>
       </v-btn>
 
-      <!-- Login and Signup Buttons -->
+ 
+      
       <v-btn outlined class="white-btn">
         <NuxtLink to="/login">Oturum aç</NuxtLink>
       </v-btn>
@@ -57,7 +65,8 @@
         <NuxtLink to="/signup">Kaydol</NuxtLink>
       </v-btn>
 
-      <!-- Language Icon -->
+ 
+      
       <v-btn icon>
         <v-icon color="#4a4a4a">mdi-earth</v-icon>
       </v-btn>
@@ -71,24 +80,25 @@
 <style scoped>
 * {
   font-family: "Udemy Sans", "SF Pro Text", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  text-decoration: none !important; /* Alt çizgiyi kaldırır */
+  text-decoration: none !important; 
 }
 
-  /* Header Arkaplan */
+
+
   .fake-header {
     margin-bottom: 55px;
     height:0px;
     background-color: #ffffff;
   }
   
-  /* Logo Ayarları */
+  
+  
   .logo-wrapper {
     display: flex;
     align-items: center;
     margin-left: 16px;
   }
   
-  /* Kesfedin Butonu */
   .nav-btn {
     font-size: 14px;
     color: #111116;    
@@ -97,7 +107,7 @@
     
   }
   
-  /* Arama Çubuğu */
+  
   .search-bar {
   max-height: 45px;
   max-width: 700px;
@@ -112,7 +122,7 @@
  
   }
   
-  /* Buton Tasarımları */
+
   .white-btn {
     border: 1px solid #4a4a4a;
     color: #4a4a4a;
@@ -131,17 +141,17 @@
     font-weight: 400;
   }
   .purple-btn a {
-  color: #ffffff !important; /* Beyaz renk ve öncelikli uygulama */
-  text-decoration: none; /* Alt çizgi kaldır */
+  color: #ffffff !important; 
+  text-decoration: none; 
 }
   
-  /* İkon Ayarları */
+
   .v-icon {
     font-size: 20px;
     color: #4a4a4a;
   }
   
-  /* Vuetify Butonlar */
+  
   .v-btn {
     margin-right: 8px;
   }

@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <!-- Sol Kısım -->
+ 
       <v-col cols="12" md="6">
         <h2>Get Your Demo</h2>
         <p>Tell us your needs and we’ll start on a custom plan to drive results.</p>
@@ -57,7 +57,8 @@
           </div>
         </div>
       </v-col>
-      <!-- Sağ Kısım -->
+
+      
       <v-col cols="12" md="6">
         <v-form>
           <div class="form-input">
@@ -143,16 +144,16 @@ export default defineComponent({
   }
 
   .custom-list {
-  list-style: none; /* Liste işaretlerini kaldırır */
+  list-style: none; 
   padding-bottom: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
 .custom-list li {
-  margin-bottom: 18px; /* Her bir maddenin arasına boşluk ekler */
-  font-weight: 400; /* Yazıyı kalınlaştırır */
-  width: 75%; /* Genişliği daraltır, istediğiniz gibi ayarlayabilirsiniz */
+  margin-bottom: 18px; 
+  font-weight: 400; 
+  width: 75%; 
 }
 
 
@@ -194,9 +195,9 @@ partner-logo-item {
   font-weight: bold;
 }
 .terms-text {
-  font-size: 12px; /* Küçük font boyutu */
-  color: #6a6f73; /* Yazının rengini gri yapmak için */
-  text-align: center; /* Ortaya hizalama */
-  margin-top: 10px; /* Butonla arasına boşluk eklemek için */
+  font-size: 12px; 
+  color: #6a6f73; 
+  text-align: center; 
+  margin-top: 10px; 
 }
 </style>
