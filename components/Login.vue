@@ -80,7 +80,7 @@ export default {
   },
   methods: {
     handleLogin() {
-      this.$emit("login", this.localEmail, "");
+      this.$emit("login", this.localEmail, "dummy-password");
     },
     loginWithGoogle() {
       console.log("Google ile giriş");
@@ -203,7 +203,7 @@ export default {
 }
 
 .error{
-  font-size: 12px;
+  font-size: 20px;
   text-align: center;
   margin-top: 10px;
 }

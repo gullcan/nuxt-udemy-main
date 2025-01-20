@@ -25,6 +25,7 @@
                 <span class="original-price">{{ course.price.original }}</span>
               </div>
               <span class="badge" v-if="course.badge">{{ course.badge }}</span>
+              <button @click="addToCart(course)" class="add-to-cart-btn">Sepete Ekle</button>
             </div>
           </div>
         </div>
@@ -35,7 +36,11 @@
     </section>
   </template>
   
-  <script setup>
+  <script setup lang="ts">
+import { useCartStore } from '@/stores/cart';
+
+const cartStore = useCartStore();
+
   const categories = [
     { name: "ChatGPT", studentCount: "3 milyondan fazla öğrenci" },
     { name: "Veri Bilimi", studentCount: "7 milyondan fazla öğrenci" },
@@ -81,6 +86,10 @@
       price: { current: "₺129,99", original: "₺249,99" },
     },
   ];
+  const addToCart = (course) => {
+  cartStore.addToCart(course);
+  alert(`${course.title} sepete eklendi!`);
+};
   </script>
   
   <style scoped>

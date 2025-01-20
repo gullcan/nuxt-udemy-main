@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@types/firebase": "^2.4.32",
+    "typescript": "^5.7.3",
     "vite-plugin-vuetify": "^2.0.4",
     "vuetify": "^3.7.6"
   }

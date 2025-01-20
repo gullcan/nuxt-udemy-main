@@ -24,6 +24,13 @@ export const useUserStore = defineStore("user", {
         }
 
         const userCredential = await createUserWithEmailAndPassword(auth, email, password); 
+        const userDocRef = doc(db, "stores", userCredential.user.uid); 
+        const userDoc = await getDoc(userDocRef);
+    
+        if (!userDoc.exists()) {
+          
+          throw new Error("Kullanıcı Firestore'da bulunamadı.");
+        }
         this.user = { fullname, email: userCredential.user.email || "", password }; 
       } catch (error: any) {
         this.error = error.message;
@@ -57,6 +64,7 @@ export const useUserStore = defineStore("user", {
           };
       
         } catch (error: any) {
+       
           if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
             this.error = "Yanlış e-posta veya şifre"; 
           } else if (error.message === "Kullanıcı Firestore'da bulunamadı.") {
@@ -83,11 +91,11 @@ export const useUserStore = defineStore("user", {
       }
     },
 
-    // Kullanıcı durumu dinleyicisi
+   
     observeAuthState() {
       onAuthStateChanged(auth, (user: User | null) => {
         if (user) {
-          this.user = { email: user.email || "", fullname: "", password: "" }; // Eğer kullanıcı varsa sadece e-posta alınır
+          this.user = { email: user.email || "", fullname: "", password: "" };
         } else {
           this.user = null;
         }

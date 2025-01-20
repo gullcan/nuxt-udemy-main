@@ -187,7 +187,7 @@ export default {
 }
 
 .error{
-  font-size: 12px;
+  font-size: 20px;
   text-align: center;
   margin-top: 10px;
 }
