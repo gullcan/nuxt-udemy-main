@@ -1,69 +1,61 @@
 <template>
   <v-container fluid class="login-container">
     <v-row>
-      <!-- Sol Kısım (Görsel) -->
       <v-col cols="12" md="6" class="login-image">
         <v-img src="@/assets/images/login.webp" alt="Login Image" cover></v-img>
       </v-col>
-
-      <!-- Sağ Kısım (Login Form) -->
       <v-col cols="12" md="6" class="d-flex align-center justify-center">
         <v-card class="login-card">
-          <!-- Başlık -->
           <v-card-title class="headline login-title">
             Öğrenim yolculuğunuza<br />devam etmek için oturum<br />açın
           </v-card-title>
-
-          <!-- E-posta ile giriş -->
           <v-form>
             <v-text-field
-              v-model="email"
+              v-model="localEmail"
               label="E-posta"
               type="email"
-              :rules="[emailRule]"
               outlined
               dense
               hide-details="auto"
               class="email-field"
             ></v-text-field>
-
-            <v-btn @click="login" block class="form-group">
+         
+            <v-btn @click="handleLogin" block class="form-group">
               <v-icon left>mdi-email</v-icon>
               E-posta ile devam et
             </v-btn>
+            <div v-if="error" class="error">{{ error }}</div>
           </v-form>
+                   <!-- Diğer giriş seçenekleri başlık -->
+                   <div class="other-options">Diğer oturum açma seçenekleri</div>
 
-          <!-- Diğer giriş seçenekleri başlık -->
-          <div class="other-options">Diğer oturum açma seçenekleri</div>
-
-          <!-- Diğer giriş seçenekleri -->
-          <v-row class="text-center login-icons">
-            <v-col>
-              <v-btn icon class="login-btn-colored" @click="loginWithGoogle">
-                <v-icon class="google-icon">mdi-google</v-icon>
-              </v-btn>
-            </v-col>
-            <v-col>
-              <v-btn icon class="login-btn-colored" @click="loginWithFacebook">
-                <v-icon class="facebook-icon">mdi-facebook</v-icon>
-              </v-btn>
-            </v-col>
-            <v-col>
-              <v-btn icon @click="loginWithApple">
-                <v-icon>mdi-apple</v-icon>
-              </v-btn>
-            </v-col>
-          </v-row>
-
-          <!-- Alt linkler -->
-          <div class="login-redirect">
-            <p>
-              Hesabınız yok mu?
-              <a href="http://localhost:3000/signup">Kaydol</a>
-              <div> </div>
-              <a href="https://www.udemy.com/organization/global-login/email">Kuruluşunuzla oturum açın</a>
-            </p>
-          </div>
+                   <!-- Diğer giriş seçenekleri -->
+                   <v-row class="text-center login-icons">
+                     <v-col>
+                       <v-btn icon class="login-btn-colored" @click="loginWithGoogle">
+                         <v-icon class="google-icon">mdi-google</v-icon>
+                       </v-btn>
+                     </v-col>
+                     <v-col>
+                       <v-btn icon class="login-btn-colored" @click="loginWithFacebook">
+                         <v-icon class="facebook-icon">mdi-facebook</v-icon>
+                       </v-btn>
+                     </v-col>
+                     <v-col>
+                       <v-btn icon @click="loginWithApple">
+                         <v-icon>mdi-apple</v-icon>
+                       </v-btn>
+                     </v-col>
+                   </v-row>
+                    <!-- Alt linkler -->
+                    <div class="login-redirect">
+                      <p>
+                        Hesabınız yok mu?
+                        <a href="http://localhost:3000/signup">Kaydol</a>
+                        <div> </div>
+                        <a href="https://www.udemy.com/organization/global-login/email">Kuruluşunuzla oturum açın</a>
+                      </p>
+                    </div>
         </v-card>
       </v-col>
     </v-row>
@@ -72,35 +64,34 @@
 
 <script>
 export default {
+  props: {
+    email: String,
+    loading: Boolean,
+    error: String,
+  },
   data() {
     return {
-      email: '',
-      emailRule: [
-        v => !!v || 'E-posta adresi gereklidir',
-        v => /.+@.+\..+/.test(v) || 'Geçerli bir e-posta adresi girin'
-      ]
+      localEmail: this.email, // Prop'u local veriyle eşitle
     };
   },
   methods: {
-    login() {
-      // E-posta ile giriş işlemini buraya ekleyebilirsiniz
-      console.log('E-posta ile giriş: ', this.email);
+    handleLogin() {
+      this.$emit("login", this.localEmail, ""); // Şifreyi burada varsayılan olarak gönderebilirsiniz
     },
     loginWithGoogle() {
-      // Google ile giriş işlemini buraya ekleyebilirsiniz
-      console.log('Google ile giriş');
+      console.log("Google ile giriş");
     },
     loginWithFacebook() {
-      // Facebook ile giriş işlemini buraya ekleyebilirsiniz
-      console.log('Facebook ile giriş');
+      console.log("Facebook ile giriş");
     },
     loginWithApple() {
-      // Apple ile giriş işlemini buraya ekleyebilirsiniz
-      console.log('Apple ile giriş');
-    }
-  }
+      console.log("Apple ile giriş");
+    },
+  },
 };
 </script>
+
+
 
 <style scoped>
 .login-container {

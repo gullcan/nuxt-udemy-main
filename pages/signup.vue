@@ -1,17 +1,35 @@
-<template> 
-  <Header /> 
-  <Signup />
-    <div class="spaceholder"></div>
-    <Footer />
+<template>
+  <Header />
+  <Signup
+    :loading="loading"
+    :error="error"
+    @signup="signup"
+  />
+  <div class="spaceholder"></div>
+  <Footer />
 </template>
 
-
 <script>
-  import Header from '/components/Header.vue';
-    import Signup from '~/components/Signup.vue';
-    import Footer from '/components/Footer.vue';
+import Header from "/components/Header.vue";
+import Footer from "/components/Footer.vue";
+import Signup from "~/components/Signup.vue";
+import { useUserStore } from "~/stores/userStore";
+
+export default {
+  components: { Header, Footer, Signup },
+  setup() {
+    const userStore = useUserStore();
+
+    return {
+      loading: userStore.loading,
+      error: userStore.error,
+      signup: userStore.signup,
+    };
+  },
+};
 </script>
-    
+
+
 
 <style scoped>
    

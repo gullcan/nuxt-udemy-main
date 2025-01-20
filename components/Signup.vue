@@ -1,103 +1,78 @@
 <template>
   <div class="signup-container">
-    <!-- Sol taraf: Resim -->
     <div class="signup-image">
       <img src="/assets/images/signup.webp" alt="Signup Illustration" />
     </div>
-
-    <!-- Sağ taraf: Form -->
     <div class="signup-form">
       <h1 class="form-title">Kaydolun ve öğrenmeye başlayın</h1>
-
-      <!-- Form Alanları -->
       <form @submit.prevent="handleSignup">
-        <!-- Tam Ad -->
+       <div class="form-group">
+        <input type="text" v-model="fullname" placeholder="Tam ad" required />  </div>
+
         <div class="form-group">
-          <input
-            type="text"
-            v-model="form.fullname"
-            placeholder="Tam ad"
-            required
-          />
-        </div>
+          <input type="email" v-model="email" placeholder="E-posta" required />   </div>
 
-        <!-- E-posta -->
-        <div class="form-group">
-          <input
-            type="email"
-            v-model="form.email"
-            placeholder="E-posta"
-            required
-          />
-        </div>
+          <div class="form-group">
+            <input type="password" v-model="password" placeholder="Şifre" required />  </div>
 
-        <!-- Şifre -->
-        <div class="form-group">
-          <input
-            type="password"
-            v-model="form.password"
-            placeholder="Şifre"
-            required
-          />
-        </div>
-
-        <!-- Teklifler ve öneriler -->
-        <div class="form-group-checkbox">
-          <input
-            type="checkbox"
-            id="subscribe"
-            v-model="form.subscribeToEmails"
-          />
-          <label for="subscribe">
-            Bana özel teklifler, kişiselleştirilmiş öneriler ve öğrenim ipuçları gönder.
-          </label>
-        </div>
-
-        <!-- Kaydol Butonu -->
-        <div class="form-group">
-          <button type="submit" class="btn-submit">Kaydol</button>
-        </div>
-
-        <!-- Kullanım Şartları -->
-        <p class="terms-text">
-          Kaydolurken
-          <a href="/terms/" target="_blank">Kullanım Şartlarımızı</a> ve
-          <a href="/terms/privacy/" target="_blank">Gizlilik Politikamızı</a>
-          kabul edersiniz.
-        </p>
+           <!-- Teklifler ve öneriler -->
+           <div class="form-group-checkbox">
+            <input
+              type="checkbox"
+              id="subscribe"
+              v-model="subscribeToEmails"
+            />
+            <label for="subscribe">
+              Bana özel teklifler, kişiselleştirilmiş öneriler ve öğrenim ipuçları gönder.
+            </label>
+          </div>
+        <button type="submit" class="btn-submit" :disabled="loading">
+          Kaydol
+        </button>
+        <div v-if="error" class="error">{{ error }}</div>
+                <!-- Kullanım Şartları -->
+                <p class="terms-text">
+                  Kaydolurken
+                  <a href="/terms/" target="_blank">Kullanım Şartlarımızı</a> ve
+                  <a href="/terms/privacy/" target="_blank">Gizlilik Politikamızı</a>
+                  kabul edersiniz.
+                </p>
       </form>
-
-      <!-- Zaten bir hesabınız var mı? -->
-      <div class="login-redirect">
-        <p>
-          Zaten bir hesabınız var mı?
-          <a href="http://localhost:3000/login">Oturum aç</a>
-        </p>
-      </div>
+        <!-- Zaten bir hesabınız var mı? -->
+        <div class="login-redirect">
+          <p>
+            Zaten bir hesabınız var mı?
+            <a href="http://localhost:3000/login">Oturum aç</a>
+          </p>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    loading: Boolean,
+    error: String,
+  },
   data() {
     return {
-      form: {
-        fullname: "",
-        email: "",
-        password: "",
-        subscribeToEmails: false,
-      },
+      fullname: "",
+      email: "",
+      password: "",
+      subscribeToEmails: false,
     };
   },
   methods: {
     handleSignup() {
-      // Kullanıcı bilgilerini işleme ve API'ye gönderme
-      console.log("Kayıt bilgileri:", this.form);
+      this.$emit("signup", this.fullname, this.email, this.password); // Kullanıcı kaydını başlat
+      console.log("Kayıt bilgileri:", this.fullname, this.email, this.password);
     },
   },
 };
 </script>
+
+
 
 <style scoped>
 .signup-container {
@@ -209,6 +184,12 @@ export default {
 
 .login-redirect a:hover {
   text-decoration: underline;
+}
+
+.error{
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
 }
 </style>
 
